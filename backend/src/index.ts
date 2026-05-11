@@ -9,7 +9,7 @@ import * as Sentry from "@sentry/node";
 
 import { clerkMiddleware } from "@clerk/express";
 import { clerkWebhookHandler } from "./webhooks/clerk";
-import { getEnv } from './lib/env';
+import { getEnv } from "./lib/env";
 import keepAliveCron from "./lib/cron";
 
 import productRouter from "./routes/productRouter";
@@ -17,7 +17,7 @@ import meRouter from "./routes/meRouter";
 import streamRouter from "./routes/streamRouter";
 import chekoutRouter from "./routes/chekoutRouter";
 import adminRouter from "./routes/adminRouter";
-
+import orderRouter from "./routes/orderRouter";
 
 import { polarWebhookHandler } from "./webhooks/polar";
 import { sentryClerkUserMiddleware } from "./middleware/sentryClerkUser";
@@ -49,6 +49,7 @@ app.use("/api/products", productRouter);
 app.use("/api/stream", streamRouter);
 app.use("/api/checkout", chekoutRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/orders", orderRouter);
 
 const publicDir = path.join(process.cwd(), "public");
 if (fs.existsSync(publicDir)) {
