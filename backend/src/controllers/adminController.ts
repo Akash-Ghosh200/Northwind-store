@@ -8,7 +8,7 @@ import { db } from "../db";
 import { orderItems, products } from "../db/schema";
 import { count, desc, eq } from "drizzle-orm";
 import { z } from "zod";
-import { deleteImageKitAsset } from "../lib/imagekit";
+import { deleteImageKitAsset } from "../lib/imagekit.js";
 
 const env = getEnv(); 
 
