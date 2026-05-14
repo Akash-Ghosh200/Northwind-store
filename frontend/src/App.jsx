@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import { Route, Routes } from 'react-router';
 import HomePage from './pages/HomePage';
 import CartPage from "./pages/CartPage";
+import OrdersPage from './pages/OrdersPage';
 
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
        <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route
+          path="/orders"
+          element={isSignedIn ? <OrdersPage /> : <Navigate to={"/"} replace />}
+        />
        </Routes>
     </Layout>
   )
